@@ -1,0 +1,36 @@
+Package: netbase
+Status: install ok installed
+Priority: important
+Section: admin
+Installed-Size: 44
+Maintainer: Marco d'Itri <md@linux.it>
+Architecture: all
+Multi-Arch: foreign
+Version: 5.4
+Conffiles:
+ /etc/protocols bb9c019d6524e913fd72441d58b68216
+ /etc/rpc f0b6f6352bf886623adc04183120f83b
+ /etc/services 567c100888518c1163b3462993de7d47
+Description: Basic TCP/IP networking system
+ This package provides the necessary infrastructure for basic TCP/IP based
+ networking.
+
+Package: discover
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 90
+Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
+Architecture: amd64
+Version: 2.1.2-7.1+deb9u1
+Depends: libc6 (>= 2.3), libdiscover2 (= 2.1.2-7.1+deb9u1), libexpat1 (>= 2.0.1), libusb-0.1-4 (>= 2:0.1.12), debconf (>= 0.5) | debconf-2.0
+Suggests: lsb-base
+Conflicts: discover1 (<< 2.0)
+Description: hardware identification system
+ Discover is a hardware identification system based on the libdiscover2
+ library.  Discover provides a flexible interface that programs can
+ use to report a wide range of information about the hardware that is
+ installed on a Linux system.  In addition to reporting information,
+ Discover includes support for doing hardware detection at boot time.
+
+ 
