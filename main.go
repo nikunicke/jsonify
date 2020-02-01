@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"strings"
 	"encoding/json"
+	"unicode"
 )
 
 func before(value string, a string) string {
@@ -59,7 +60,7 @@ func get_reverse_depends(a []map[string]interface{})	{
 				}
 			}
 		}
-		packages["Reverse-Depends"] = rev_depends
+		packages["Reverse_Depends"] = rev_depends
 	}
 }
 
@@ -90,12 +91,11 @@ func main()  {
 	packages := strings.Split(string(output), "\n\n")
 	result := []map[string]interface{}{}
 	for i := 0; i < len(packages) - 1; i++ {
-		// test := map[string]interface{}{}
 		container := data_object{}
 		for _, row := range (strings.Split(packages[i], "\n")) {
-			if row[0] == ' ' {
+			if unicode.IsSpace(rune(row[0])) {
 				value = value + row
-				container[key] = after(value, ": ")
+				container[key] = value // after(value, ": ")
 			} else {
 				value = after(before(row, "\n"), ": ")
 				key = before(after(row, "\n"), ":")
@@ -105,13 +105,12 @@ func main()  {
 		container.NestifyKeyValues("Depends", ", ")
 		result = append(result, container)
 	}
-	// nestify_values(result, "Depends", ", ")
 	get_reverse_depends(result)
 	b, err := json.MarshalIndent(result, "", "\t")
 	if err != nil {
 		fmt.Println(err)
 	}
-	err = ioutil.WriteFile("/var/local/reaktor-app-data/dpkg.json", b, 0644)
+	err = ioutil.WriteFile("/root/data/dpkg/dpkg.json", b, 0644)
 	if err != nil {
 		fmt.Println(err)
 	}
