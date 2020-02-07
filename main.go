@@ -6,6 +6,8 @@ import (
 	"strings"
 	"encoding/json"
 	"unicode"
+	"os"
+	"path"
 )
 
 func before(value string, a string) string {
@@ -94,8 +96,8 @@ func main()  {
 		container := data_object{}
 		for _, row := range (strings.Split(packages[i], "\n")) {
 			if unicode.IsSpace(rune(row[0])) {
-				value = value + row
-				container[key] = value // after(value, ": ")
+				value = value + "\n" + row
+				container[key] = value
 			} else {
 				value = after(before(row, "\n"), ": ")
 				key = before(after(row, "\n"), ":")
@@ -110,7 +112,8 @@ func main()  {
 	if err != nil {
 		fmt.Println(err)
 	}
-	err = ioutil.WriteFile("/root/data/dpkg/dpkg.json", b, 0644)
+	dir, err := os.Executable()
+	err = ioutil.WriteFile(path.Dir(dir) + "/data/dpkg.json", b, 0644)
 	if err != nil {
 		fmt.Println(err)
 	}
