@@ -13,7 +13,7 @@ func parseArgs(target *args) {
 		log.Fatal(err)
 	}
 	target.path = (flag.String("path", "/var/lib/dpkg/status", "file to parse"))
-	target.save = (flag.String("save", path.Dir(dir) + "/data/dpkg.json", "save path"))
+	target.save = (flag.String("save", path.Dir(dir) + "/dpkg.json", "save path"))
 	flag.Parse()
 	target.tail = flag.Args()
 }
