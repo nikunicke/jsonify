@@ -4,7 +4,12 @@ This program allows you to dynamically generate JSON arrays from structured text
 By default, the program will read and parse /var/lib/dpkg/status to /path/of/executable/dpkg.json
 To run the program with default settings on your system, simply execute the binary.
 ```console
-	./path_to_repo/bin/jsonify
+	./path_to_repo/jsonify
+```
+
+If you wish to recompile, you need to have Golang installed
+```console
+	go build -o "binary_name"
 ```
 
 The text files need to be of similar structure as the "test" file in this repo.
