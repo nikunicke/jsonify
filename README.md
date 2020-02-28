@@ -1,13 +1,31 @@
 # Text to JSON
 
 This program allows you to dynamically generate JSON arrays from structured text files.
+By default, the program will read and parse /var/lib/dpkg/status to /path/of/executable/data/dpkg.json
+To run the program with default settings on your system, simply execute the binary.
+```console
+	./path_to_repo/bin/jsonify
+```
+
 The text files need to be of similar structure as the "test" file in this repo.
-### KEY: VALUE
+*	Each object should be separated by two newlines
+*	A line should contain its respective key and value
+	*	If a key cannot be found, the line will be appended to the value of the previous key. If there is no previous key, the line will be skipped.
 
-Running setup script will make sure your executable directory has a 'data' directory, where it will store the new json file. The script will also schedule a monitoring script on crontab, to make execute updates whenever our source has changed.
+## Flags
+*	-h: Usage
+*	-path: path to file which we wish to parse to JSON
+*	-save: path of the file where we wish to save our new JSON file
+```console
+	./path_to_repo/jsonify -path=./var/lib/dpkg/status -save=./data/dpkg_status.json
+```
 
-TODO:
-*	Validate source text structure before converting to JSON
-*	Restructure code
-*	Prompt 'data' dir from user and config setup.sh accordingly.
-*	Add monitoring script to this repo
+## Arguments
+Additional arguments are not supported right now.
+
+Here you could for example name the keys which values should be nested objects or arrays.
+
+## Files
+*	main.go	-	Designated start and end of the program
+*	options.go	-	Parsing flags and additional arguments
+*	parse.go	-	Parsing the file to JSON
