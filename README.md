@@ -32,7 +32,11 @@ Additional arguments are not supported right now.
 Here you could for example name the keys which values should be nested objects or arrays. <b>Right now you have to customize splitValues or splitElements to do that kind of stuff</b>.
 
 ## Files
-*	main.go	-	Designated start and end of the program
-*	options.go	-	Parsing flags and additional arguments
-*	parse.go	-	Parsing the file to JSON
-*	jsonify	-	Executable
+*	main.go			-	Designated start and end of the program
+*	options.go		-	Parsing flags and additional arguments
+*	parse.go		-	Parsing the file to JSON
+*	jsonify			-	Executable
+*	monitor_file.sh	-	For automated updates. Add to crontab if you wish.
+```console
+	(crontab -l 2>/dev/null; echo "* * * * * ~/scripts/monitor_file.sh /var/lib/dpkg/status") | crontab -
+```
