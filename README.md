@@ -1,7 +1,7 @@
 # Text to JSON
 
 This program allows you to dynamically generate JSON arrays from structured text files.
-By default, the program will read and parse /var/lib/dpkg/status to /path/of/executable/data/dpkg.json
+By default, the program will read and parse /var/lib/dpkg/status to /path/of/executable/dpkg.json
 To run the program with default settings on your system, simply execute the binary.
 ```console
 	./path_to_repo/bin/jsonify
