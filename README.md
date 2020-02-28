@@ -28,9 +28,10 @@ The text files need to be of similar structure as the "test" file in this repo.
 ## Arguments
 Additional arguments are not supported right now.
 
-Here you could for example name the keys which values should be nested objects or arrays.
+Here you could for example name the keys which values should be nested objects or arrays. <b>Right now you have to use splitValues or splitElements to do that kind of stuff<b>.
 
 ## Files
 *	main.go	-	Designated start and end of the program
 *	options.go	-	Parsing flags and additional arguments
 *	parse.go	-	Parsing the file to JSON
+*	jsonify	-	Executable

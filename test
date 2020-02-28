@@ -32,5 +32,3 @@ Description: hardware identification system
  use to report a wide range of information about the hardware that is
  installed on a Linux system.  In addition to reporting information,
  Discover includes support for doing hardware detection at boot time.
-
- 
