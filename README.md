@@ -38,5 +38,5 @@ Here you could for example name the keys which values should be nested objects o
 *	jsonify			-	Executable
 *	monitor_file.sh	-	For automated updates. Add to crontab if you wish.
 ```console
-	(crontab -l 2>/dev/null; echo "* * * * * ~/scripts/monitor_file.sh /var/lib/dpkg/status") | crontab - 
+	(crontab -l 2>/dev/null; echo "* * * * * ~/scripts/monitor_file.sh /var/lib/dpkg/status") | crontab -
 ```
