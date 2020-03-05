@@ -15,5 +15,5 @@ if [ "$MD5" != "$(cat $FILE)" ] ;
 then
 	echo "$MD5" > $FILE
 	echo "[ $(date) ]: '$TARGET' has been modified" >> /var/log/monitor_file.log
-	/root/go/go_tools/dpkg_json/dpkg_json
+	/root/go/go_tools/dpkg_json/jsonify
 fi
